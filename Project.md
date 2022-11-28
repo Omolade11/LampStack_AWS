@@ -43,5 +43,6 @@ To verify that apache2 is running as a Service in our OS, we will use the follow
 sudo systemctl status apache2
 
 ```
-The result gotten should look like this 
+The result gotten should look like this
 
+![Apache Verification](/path/to/image.png "Text to show on mouseover")
