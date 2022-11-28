@@ -251,6 +251,15 @@ phpinfo();
 ```
 When we are finished, we will save and close the file. Afterward, we will go to our ip address page on the browser and see this:
 
-![Screenshot 2022-11-28 at 16 32 57](https://user-images.githubusercontent.com/55920110/204317857-d8855e22-4ce0-419d-85f2-2b4a83df61b6.png)
+![about server](https://github.com/Omolade11/LampStack_AWS/blob/main/Images/Screenshot%202022-11-28%20at%2016.32.57.png)
+
+This page provides information about our server from the perspective of PHP. It is useful for debugging and to ensure that our settings are being applied correctly.
+
+After checking the relevant information about our PHP server through that page, it’s best to remove the file we created as it contains sensitive information about our PHP environment -and our Ubuntu server. We can use rm to do so:
+
+```
+sudo rm /var/www/projectlamp/index.php
+```
+We can always recreate this page if we need to access the information again later.
 
 
