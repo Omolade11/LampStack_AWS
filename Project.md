@@ -55,4 +55,15 @@ or
 ```
 The 2 commands above actually do pretty much the same – they use ‘curl’ command to request our Apache HTTP Server on port 80 (actually you can even try to not specify any port – it will work anyway). The difference is that: in the first case we try to access our server via DNS name and in the second one – by IP address (in this case IP address 127.0.0.1 corresponds to DNS name ‘localhost’ and the process of converting a DNS name to IP address is called "resolution").
 
-We will get strangely formatted text as output![Screenshot 2022-11-28 at 11 11 02](https://user-images.githubusercontent.com/55920110/204251627-9cf43096-609e-47eb-ba5d-9c3641c72aa0.png)
+We will get strangely formatted text as output
+![content of apache](https://github.com/Omolade11/LampStack_AWS/blob/main/Images/Screenshot%202022-11-28%20at%2011.11.02.png "Content")
+
+Now it is time for us to test how our Apache HTTP server can respond to requests from the Internet.
+
+Open a web browser of your choice and try to access following url
+http://<Public-IP-Address>:80
+Another way to retrieve Public IP address, other than to check it in AWS Web console, is to use following command:
+```
+ curl -s http://169.254.169.254/latest/meta-data/public-ipv4
+ ```
+ Having checked through my public ip address, this id the result I got.
