@@ -232,4 +232,25 @@ We need to edit the /etc/apache2/mods-enabled/dir.conf file and change the order
         DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
 </IfModule>
 ```
+ After saving and closing the file, we will need to reload Apache so the changes take effect:
+``` 
+sudo systemctl reload apache2
+``` 
+Finally, we will create a PHP script to test that PHP is correctly installed and configured on your server.
  
+Now that you have a custom location to host your website’s files and folders, we’ll create a PHP test script to confirm that Apache is able to handle and process requests for PHP files.
+ 
+Create a new file named index.php inside our custom web root folder:
+``` 
+vim /var/www/projectlamp/index.php
+``` 
+This will open a blank file. Add the following text, which is valid PHP code, inside the file:
+``` 
+<?php
+phpinfo();
+```
+When we are finished, we will save and close the file. Afterward, we will go to our ip address page on the browser and see this:
+
+![Screenshot 2022-11-28 at 16 32 57](https://user-images.githubusercontent.com/55920110/204317857-d8855e22-4ce0-419d-85f2-2b4a83df61b6.png)
+
+
