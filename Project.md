@@ -62,8 +62,33 @@ Now it is time for us to test how our Apache HTTP server can respond to requests
 
 Open a web browser of your choice and try to access following url
 http://<Public-IP-Address>:80
+ 
 Another way to retrieve Public IP address, other than to check it in AWS Web console, is to use following command:
-```
+ ```
  curl -s http://169.254.169.254/latest/meta-data/public-ipv4
  ```
- Having checked through my public ip address, this id the result I got.
+ Having checked through my public ip address, this is the result I got.
+
+ ![Result](https://github.com/Omolade11/LampStack_AWS/blob/main/Images/Screenshot%202022-11-28%20at%2011.39.00.png "Result")
+ 
+ It is the same content that we previously got by ‘curl’ command. But this time, represented in nice HTML formatting by the web browser.
+
+ ## INSTALLING MYSQL
+ 
+ Now that we have a web server up and running, we need to install a Database Management System (DBMS) to be able to store and manage data for our site in a relational database. MySQL is a popular relational database management system used within PHP environments, so we will use it in our project.
+ 
+ ```
+ sudo apt install mysql-server
+ ```
+ 
+ When prompted, confirm installation by typing Y, and then ENTER.
+ 
+ Login to the MYSQL console by typing:
+ ```
+ sudo mysql
+ ```
+ It will connect to the MySQL server as the administrative database user root
+ 
+ 
+
+ 
