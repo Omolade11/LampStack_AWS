@@ -211,5 +211,5 @@ To disable Apache’s default website use a2dissite command, we will run:
 sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
  ```
 Now we will go to our browser and try to open your website URL using IP address:
-http://<Public-IP-Address>:80
-
+http://<<Public-IP-Address>:80
+![application](https://github.com/Omolade11/LampStack_AWS/blob/main/Images/Screenshot%202022-11-28%20at%2016.07.01.png)
