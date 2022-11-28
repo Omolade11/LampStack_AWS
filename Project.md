@@ -46,3 +46,13 @@ sudo systemctl status apache2
 The result gotten should look like this
 
 ![Apache Verification](https://github.com/Omolade11/LampStack_AWS/blob/main/Images/Screenshot%202022-11-28%20at%2010.14.44.png "Apache Verification")
+
+This means that we did everything correctly. Our server is running and we can access it locally and from the Internet. To access it locally, we will run the following:
+```
+curl http://localhost:80
+or
+ curl http://127.0.0.1:80
+```
+The 2 commands above actually do pretty much the same – they use ‘curl’ command to request our Apache HTTP Server on port 80 (actually you can even try to not specify any port – it will work anyway). The difference is that: in the first case we try to access our server via DNS name and in the second one – by IP address (in this case IP address 127.0.0.1 corresponds to DNS name ‘localhost’ and the process of converting a DNS name to IP address is called "resolution").
+
+We will get strangely formatted text as output![Screenshot 2022-11-28 at 11 11 02](https://user-images.githubusercontent.com/55920110/204251627-9cf43096-609e-47eb-ba5d-9c3641c72aa0.png)
