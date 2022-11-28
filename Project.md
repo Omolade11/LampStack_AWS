@@ -137,4 +137,79 @@ To install these 3 packages at once, we will run:
  php -v
  ```
  The result should look like this
+ ![php confirmation](https://github.com/Omolade11/LampStack_AWS/blob/main/Images/Screenshot%202022-11-28%20at%2014.32.54.png)
  
+ At this point, our LAMP stack is completely installed and fully operational.
+ 
+ ## CREATING A VIRTUAL HOST FOR YOUR WEBSITE USING APACHE
+ 
+ In this project, we will set up a domain called projectlamp (can be replaced with any domain of choice)
+ 
+Apache on Ubuntu 20.04 has one server block enabled by default that is configured to serve documents from the /var/www/html directory. 
+ 
+We will leave this configuration as is and will add our own directory next next to the default one.
+ 
+We will create the directory for projectlamp using ‘mkdir’ command as follows:
+ 
+ ```
+ sudo mkdir /var/www/projectlamp
+ ```
+Next, we will be assigning ownership of the directory with our current system user:
+ 
+ ```
+  sudo chown -R $USER:$USER /var/www/projectlamp
+```
+ Then, we will create and open a new configuration file in Apache’s sites-available directory using your preferred command-line editor. Here, we’ll be using vim:
+ 
+ ```
+ sudo vi /etc/apache2/sites-available/projectlamp.conf
+```
+ This will create a new blank file. We will Paste in the following bare-bones configuration by hitting on i on the keyboard to enter the insert mode, and paste the text:
+ ```
+<VirtualHost *:80>
+    ServerName projectlamp
+    ServerAlias www.projectlamp 
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/projectlamp
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+ ```
+ To save and close the file, we will press the esc button and thereafter type ":wq" where w for write and q is for quit. Afterward, we will click the enter button.
+ 
+we will use the ls command to show the new file in the sites-available directory
+```
+ sudo ls /etc/apache2/sites-available
+ 
+ ```
+Something like this will come up;
+ 
+```
+ 000-default.conf default-ssl.conf  projectlamp.conf
+```
+we can now use a2ensite command to enable the new virtual host:
+```
+ sudo a2ensite projectlamp
+```
+To disable Apache’s default website use a2dissite command, we will run:
+```
+ sudo a2dissite 000-default
+```
+ To make sure our configuration file doesn’t contain syntax errors, we will run:
+```
+ sudo apache2ctl configtest
+```
+ Finally, we will reload Apache so these changes take effect:
+ ```
+ sudo systemctl reload apache2
+```
+ 
+ Our new website is now active, but the web root /var/www/projectlamp is still empty. 
+ We will create an index.html file in that location so that we can test that the virtual host works as expected:
+ ```
+sudo echo 'Hello LAMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectlamp/index.html
+ ```
+Now we will go to our browser and try to open your website URL using IP address:
+http://<Public-IP-Address>:80
+
