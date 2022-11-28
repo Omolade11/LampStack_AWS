@@ -45,4 +45,4 @@ sudo systemctl status apache2
 ```
 The result gotten should look like this
 
-![Apache Verification](/path/to/image.png "Text to show on mouseover")
+![Apache Verification](https://github.com/Omolade11/LampStack_AWS/blob/main/Images/Screenshot%202022-11-28%20at%2010.14.44.png "Apache Verification")
